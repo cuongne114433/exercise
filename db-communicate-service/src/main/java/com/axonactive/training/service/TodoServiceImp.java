@@ -7,6 +7,8 @@ import jakarta.inject.Inject;
 
 import java.util.List;
 
+import static com.axonactive.training.contants.TodoTemp.TODO_ITEMS_TEMP;
+
 @ApplicationScoped
 public class TodoServiceImp implements TodoService{
     @Inject
@@ -55,5 +57,16 @@ public class TodoServiceImp implements TodoService{
     @Override
     public TodoItem getItem(long id) {
         return repository.findById(id);
+    }
+
+    @Override
+    public boolean createTempItem(TodoItem todoItem) {
+        TODO_ITEMS_TEMP.add(todoItem);
+        return true;
+    }
+
+    @Override
+    public List<TodoItem> getTempTodoItem(TodoItem todoItem) {
+        return TODO_ITEMS_TEMP;
     }
 }

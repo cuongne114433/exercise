@@ -10,4 +10,7 @@ public interface TodoService {
     boolean delete(long id);
     List<TodoItem> getAll();
     TodoItem getItem(long id);
+
+    boolean createTempItem(TodoItem todoItem);
+    List<TodoItem> getTempTodoItem(TodoItem todoItem);
 }
